@@ -3,6 +3,42 @@
 
 @theme {
   --font-poppins: poppins, sans-serif;
+  --pkm-bug: #65a30d4d;
+  --pkm-bug-tag: #65a30db3;
+  --pkm-dark: #0f172a4d;
+  --pkm-dark-tag: #0f172ab3;
+  --pkm-dragon: #0e74904d;
+  --pkm-dragon-tag: #0e7490b3;
+  --pkm-electric: #facc154d;
+  --pkm-electric-tag: #facc15b3;
+  --pkm-fairy: #f472b64d;
+  --pkm-fairy-tag: #f472b6b3;
+  --pkm-fighting: #92400e4d;
+  --pkm-fighting-tag: #92400eb3;
+  --pkm-fire: #f973164d;
+  --pkm-fire-tag: #f97316b3;
+  --pkm-flying: #1e40af4d;
+  --pkm-flying-tag: #1e40afb3;
+  --pkm-ghost: #2e10654d;
+  --pkm-ghost-tag: #2e1065b3;
+  --pkm-grass: #16a34a4d;
+  --pkm-grass-tag: #22c55eb3;
+  --pkm-ground: #78350f4d;
+  --pkm-ground-tag: #422006b3;
+  --pkm-ice: #67e8f94d;
+  --pkm-ice-tag: #22d3eeb3;
+  --pkm-normal: #d1d5db4d;
+  --pkm-normal-tag: #9ca3afb3;
+  --pkm-poison: #9333ea4d;
+  --pkm-poison-tag: #a855f7b3;
+  --pkm-psychic: #a78bfa4d;
+  --pkm-psychic-tag: #a78bfab3;
+  --pkm-rock: #44403c4d;
+  --pkm-rock-tag: #44403cb3;
+  --pkm-steel: #4b55634d;
+  --pkm-steel-tag: #4b5563b3;
+  --pkm-water: #3b82f64d;
+  --pkm-water-tag: #3b82f6b3;
 }
 
 * {
