@@ -15,9 +15,9 @@ body {
 }
 
 .cursor-pikachu {
-  cursor: url('./src/assets/cur/pikachu.cur'), auto;
+  cursor: url('/cur/pikachu.cur'), pointer;
 }
 
 .cursor-pokeball {
-  cursor: url('./src/assets/cur/pokeball.cur'), auto;
+  cursor: url('/cur/pokeball.cur'), pointer;
 }
