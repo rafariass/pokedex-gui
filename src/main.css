@@ -3,8 +3,21 @@
 
 @theme {
   --font-poppins: poppins, sans-serif;
+  --color-midnight: #00365a;
 }
 
 * {
   @apply font-poppins font-light scroll-smooth;
+}
+
+body {
+  @apply bg-midnight select-none
+}
+
+.cursor-pikachu {
+  cursor: url('./src/assets/cur/pikachu.cur'), auto;
+}
+
+.cursor-pokeball {
+  cursor: url('./src/assets/cur/pokeball.cur'), auto;
 }
