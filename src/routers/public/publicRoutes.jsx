@@ -2,7 +2,7 @@ import { lazy } from 'react'
 import { Navigate } from 'react-router'
 
 const HomePage = lazy(() => import('../../pages/Home'))
-const Dashboard = lazy(() => import('../../pages/Dashboard'))
+const Pokemons = lazy(() => import('../../pages/Pokemons'))
 const NotFoundPage = lazy(() => import('../../pages/NotFound'))
 
 const PokeGallery = lazy(() => import('../../components/PokeGallery'))
@@ -12,8 +12,8 @@ const PokePrompt = lazy(() => import('../../shared/components/PokePrompt'))
 export const publicRoutes = [
   { path: '/', Component: HomePage },
   {
-    path: '/dashboard',
-    Component: Dashboard,
+    path: '/pokemons',
+    Component: Pokemons,
     children: [
       { index: true, Component: PokePrompt },
       { path: 'gallery', Component: () => <Navigate to='/not-found' /> },
