@@ -1,6 +1,6 @@
 const PokeMain = ({ children, className }) => {
   return (
-    <main className={`w-full max-w-7xl flex flex-col items-center justify-center px-2 my-15 mx-auto ${className}`}>
+    <main className={`w-full max-w-xxl flex flex-col items-center justify-center px-4 mx-auto my-15 ${className}`}>
       {children}
     </main>
   )

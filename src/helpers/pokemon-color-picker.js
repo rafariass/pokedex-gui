@@ -15,7 +15,7 @@ const typeColors = {
   grass: '#16a34a',
   ground: '#78350f',
   ice: '#67e8f9',
-  normal: '#d1d5db',
+  normal: '#6f6f6f',
   poison: '#9333ea',
   psychic: '#a78bfa',
   rock: '#44403c',

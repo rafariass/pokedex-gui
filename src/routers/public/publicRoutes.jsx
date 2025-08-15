@@ -1,5 +1,4 @@
 import { lazy } from 'react'
-import { Navigate } from 'react-router'
 
 const HomePage = lazy(() => import('../../pages/Home'))
 const Pokemons = lazy(() => import('../../pages/Pokemons'))
@@ -16,9 +15,7 @@ export const publicRoutes = [
     Component: Pokemons,
     children: [
       { index: true, Component: PokePrompt },
-      { path: 'gallery', Component: () => <Navigate to='/not-found' /> },
-      { path: 'pokemon', Component: () => <Navigate to='/not-found' /> },
-      { path: 'gallery/:category', Component: PokeGallery },
+      { path: 'gallery', Component: PokeGallery },
       { path: 'pokemon/:id', Component: PokeInfo }
     ]
   },
