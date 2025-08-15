@@ -20,17 +20,17 @@ body {
   @apply bg-midnight select-none;
 }
 
-button {
+.bg-pokemon {
+  background-image: url('/wallpapers/pikachu.png');
+  background-repeat: repeat;
+}
+
+.poke-btn {
   @apply border rounded-lg px-4 py-2;
   @apply inline-flex items-center justify-center whitespace-nowrap transition-all duration-300;
   @apply bg-stone-200 border-stone-300 text-stone-500 shadow-sm;
   @apply hover:bg-stone-400 hover:border-stone-400 hover:text-white hover:shadow-xl;
   @apply disabled:pointer-events-none disabled:opacity-50;
-}
-
-.bg-pokemon {
-  background-image: url('/wallpapers/pikachu.png');
-  background-repeat: repeat;
 }
 
 .cursor-pikachu {

@@ -2,6 +2,7 @@ import { useNavigate, useSearchParams } from 'react-router'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import usePokemonPage from '../hooks/usePokemonPage'
 
+import pokemonLoader from '..//assets/gif/pikachi-phone.gif'
 import PokeCard from './PokeCard'
 
 const PokeGallery = () => {
@@ -14,11 +15,18 @@ const PokeGallery = () => {
   const { isLoading, isError, error, data } = usePokemonPage({ generation, page })
 
   if (isLoading === true) {
-    return <></>
+    return (
+      <div className='fixed inset-0 bg-black/60 flex items-center justify-center z-50'>
+        <div className='bg-white rounded-xl shadow-lg p-6 w-80 flex flex-col items-center justify-center'>
+          <img src={pokemonLoader} alt='Cargando...' />
+        </div>
+      </div>
+    )
   }
 
   if (isError === true) {
-    return <div>Error: {JSON.stringify(error, null, 2)}</div>
+    console.error(error?.message)
+    navigate('/error')
   }
 
   return (
@@ -28,7 +36,7 @@ const PokeGallery = () => {
       ))}
       <div className='w-full flex flex-wrap justify-center items-center gap-5 mx-4 my-10 md:mb-0'>
         <button
-          className='cursor-pikachu'
+          className='poke-btn cursor-pikachu'
           onClick={() => navigate(data?.previous)}
           disabled={data?.previous === null}
         >
@@ -36,7 +44,7 @@ const PokeGallery = () => {
         </button>
         Página {data?.page} de {data?.pages}
         <button
-          className='cursor-pikachu'
+          className='poke-btn cursor-pikachu'
           onClick={() => navigate(data?.next)}
           disabled={data?.next === null}
         >
