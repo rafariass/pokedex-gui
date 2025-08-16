@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { pokemonDetails } from '../services/pokemon.service'
 
 const usePokemonDetails = (id) => {

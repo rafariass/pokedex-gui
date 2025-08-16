@@ -8,7 +8,7 @@ const Pokemons = () => {
   return (
     <PokeDashboard>
       <PokeNav />
-      <PokeMain>
+      <PokeMain className='max-w-[2000px]'>
         <Outlet />
       </PokeMain>
     </PokeDashboard>

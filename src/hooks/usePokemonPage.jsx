@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+
 import { pokemonDetails, pokemonsGeneration } from '../services/pokemon.service'
 
 const usePokemonPage = ({ generation, page }) => {

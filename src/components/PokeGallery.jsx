@@ -1,9 +1,10 @@
 import { useNavigate, useSearchParams } from 'react-router'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+
 import usePokemonPage from '../hooks/usePokemonPage'
 
-import pokemonLoader from '..//assets/gif/pikachi-phone.gif'
 import PokeCard from './PokeCard'
+import PokeLoader from '../shared/components/PokeLoader'
 
 const PokeGallery = () => {
   const navigate = useNavigate()
@@ -15,13 +16,7 @@ const PokeGallery = () => {
   const { isLoading, isError, error, data } = usePokemonPage({ generation, page })
 
   if (isLoading === true) {
-    return (
-      <div className='fixed inset-0 bg-black/60 flex items-center justify-center z-50'>
-        <div className='bg-white rounded-xl shadow-lg p-6 w-80 flex flex-col items-center justify-center'>
-          <img src={pokemonLoader} alt='Cargando...' />
-        </div>
-      </div>
-    )
+    return <PokeLoader />
   }
 
   if (isError === true) {

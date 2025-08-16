@@ -1,6 +1,7 @@
 import './main.css'
 
 import { createRoot } from 'react-dom/client'
+
 import { enableMocking } from './config/environment'
 import Pokedex from './Pokedex'
 

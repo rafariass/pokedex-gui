@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router'
 
 import pokemonError from '../../assets/img/404_pokemon.webp'
 import pokemonLoader from '../../assets/gif/pikachu-running.gif'
-import { formattedCode } from '../../utils'
 import { ColorPicker } from '../../helpers/pokemon-color-picker'
+import { formattedCode } from '../../utils'
 
 const PokeCard = ({ pokemon }) => {
   const navigate = useNavigate()

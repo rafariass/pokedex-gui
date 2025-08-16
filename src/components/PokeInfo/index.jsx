@@ -1,4 +1,5 @@
 import { useParams } from 'react-router'
+
 import usePokemonDetails from '../../hooks/usePokemonDetails'
 
 const PokeInfo = () => {

@@ -6,12 +6,6 @@
   --color-midnight: #00365a;
 }
 
-@layer utilities {
-  .max-w-xxl {
-    max-width: 136rem;
-  }
-}
-
 * {
   @apply font-poppins font-light scroll-smooth;
 }
@@ -20,9 +14,34 @@ body {
   @apply bg-midnight select-none;
 }
 
+.cursor-pikachu {
+  cursor: url('/cur/pikachu.cur'), pointer;
+}
+
+.cursor-pokeball {
+  cursor: url('/cur/pokeball.cur'), pointer;
+}
+
 .bg-pokemon {
   background-image: url('/wallpapers/pikachu.png');
   background-repeat: repeat;
+}
+
+.poke-nav {
+  @apply flex flex-col items-center justify-center px-4 py-8;
+  @apply text-white bg-midnight border border-midnight;
+  @apply [clip-path:polygon(100%_0,_100%_93%,_70%_100%,_0_85%,_0_0)];
+}
+
+.poke-logo {
+  @apply w-full max-w-[500px] mx-auto mb-8;
+  @apply drop-shadow-[0_0_15px_#ffffff4d];
+  @apply transition-transform duration-300 hover:scale-110;
+}
+
+.poke-error {
+  @apply drop-shadow-[0_0_15px_#0a0a0a3b];
+  @apply transition-transform duration-300 hover:scale-110;
 }
 
 .poke-btn {
@@ -31,14 +50,6 @@ body {
   @apply bg-stone-200 border-stone-300 text-stone-500 shadow-sm;
   @apply hover:bg-stone-400 hover:border-stone-400 hover:text-white hover:shadow-xl;
   @apply disabled:pointer-events-none disabled:opacity-50;
-}
-
-.cursor-pikachu {
-  cursor: url('/cur/pikachu.cur'), pointer;
-}
-
-.cursor-pokeball {
-  cursor: url('/cur/pokeball.cur'), pointer;
 }
 
 .poke-wrap {
@@ -53,12 +64,12 @@ body {
   @apply relative w-1/2 -mt-6 md:mt-0 md:w-full md:h-auto overflow-visible flex justify-center;
 }
 
-.poke-card-img {
-  @apply w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-125 z-10;
-}
-
 .poke-card-body {
   @apply w-1/2 md:w-full flex flex-col justify-center items-center text-white text-center;
+}
+
+.poke-card-img {
+  @apply w-full h-full object-contain transition-transform duration-300 ease-in-out group-hover:scale-125 z-10;
 }
 
 .poke-card-title {
@@ -73,4 +84,3 @@ body {
 .poke-tag {
   @apply capitalize text-xs text-center p-2 w-full rounded-md shadow-md;
 }
-
