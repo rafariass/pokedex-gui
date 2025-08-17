@@ -19,13 +19,22 @@ export const pokemonDetails = async (id) => {
 
 export const pokemonsGeneration = async (generation) => {
   const { data } = await axios.get(`/generation/${generation}`)
-  const pokemons = {
+  return {
+    id: data?.id,
     region: data?.main_region?.name,
-    generation: data?.id,
     pokemons: data?.pokemon_species
-      .map(({ url }) => url.split('/').filter(Boolean).pop())
-      .sort((a, b) => a - b)
+      ?.map(({ url }) => url?.split('/').filter(Boolean).pop())
+      ?.sort((a, b) => a - b)
   }
+}
 
-  return pokemons
+export const pokemonsType = async (type) => {
+  const { data } = await axios.get(`/type/${type}`)
+  return {
+    id: data?.id,
+    type: data?.name,
+    pokemons: data?.pokemon
+      ?.map(({ pokemon }) => pokemon?.url?.split('/').filter(Boolean).pop())
+      ?.sort((a, b) => a - b)
+  }
 }

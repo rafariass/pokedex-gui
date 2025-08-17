@@ -24,7 +24,7 @@ const NotFound = () => {
           Parece que el huevo intentó eclosionar… ¡pero en lugar de un Pokémon, salió humo! Intenta más tarde o sigue tus huellas para no perder el rumbo y seguir explorando sin dejar atrás la diversión.
         </p>
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/pokemons')}
           className='bg-[#ed5564] hover:bg-[#d64d5a] text-white py-3 px-12 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg flex items-center justify-center gap-3 cursor-pointer'
         >
           <img
