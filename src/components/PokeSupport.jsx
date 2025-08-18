@@ -4,8 +4,8 @@ import rafariass from '@/assets/icon/rafariass.ico'
 
 const PokeSupport = () => {
   return (
-    <footer className='h-[150px] w-full py-15 bg-midnight border border-midnight [clip-path:polygon(61%_23%,100%_3%,100%_100%,0_100%,0_0)]'>
-      <p className='leading-[2] text-white text-center'>
+    <footer className='poke-support'>
+      <p className='leading-[2]'>
         Raúl Farias S. Frontend Developer&#174; 2025.<br />
         <span className='inline-flex'>
           Created by

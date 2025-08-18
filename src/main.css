@@ -144,10 +144,17 @@
 
 .poke-nav {
   @apply flex flex-col items-center justify-center px-4 py-8;
-  @apply text-white bg-midnight border border-midnight;
+  @apply text-white;
+  @apply bg-midnight border border-midnight;
   @apply [clip-path:polygon(100%_0,_100%_93%,_70%_100%,_0_85%,_0_0)];
 }
 
+.poke-support {
+  @apply h-[150px] w-full py-15 px-2;
+  @apply text-white text-center;
+  @apply bg-midnight border border-midnight;
+  @apply [clip-path:polygon(61%_23%,100%_3%,100%_100%,0_100%,0_0)];
+}
 .poke-logo {
   @apply w-full max-w-[500px] mx-auto mb-8;
   @apply drop-shadow-[0_0_15px_#ffffff4d];

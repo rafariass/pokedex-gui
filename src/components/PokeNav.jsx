@@ -5,7 +5,7 @@ import pokedexImage from '@/assets/img/pokedex_title.png'
 const PokeNav = ({ children }) => {
   return (
     <div className='poke-nav'>
-      <Link to='/'>
+      <Link to='/pokemons'>
         <img
           src={pokedexImage}
           className='poke-logo'
