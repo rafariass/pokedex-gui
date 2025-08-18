@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router'
 import { useQuery } from '@tanstack/react-query'
-import { pokemonDetails, pokemonsGeneration, pokemonsType } from '../services/pokemon.service'
+
+import { pokemonDetails, pokemonsGeneration, pokemonsType } from '@/services/pokemon.service'
 
 const conflictError = {
   code: 400,

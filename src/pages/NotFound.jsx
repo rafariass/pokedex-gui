@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router'
 
-import PokeNav from '../components/PokeNav'
-import PokeMain from '../shared/components/PokeMain'
-import PokeDashboard from '../shared/components/PokeDashboard'
+import PokeNav from '@/components/PokeNav'
+import PokeMain from '@/shared/components/PokeMain'
+import PokeDashboard from '@/shared/components/PokeDashboard'
 
-import notFoundImage from '../assets/img/404_web.webp'
-import eggErrorImage from '../assets/img/egg_error.png'
+import notFoundImage from '@/assets/img/404_web.webp'
+import eggErrorImage from '@/assets/img/egg_error.png'
 
 const NotFound = () => {
   const navigate = useNavigate()

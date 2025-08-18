@@ -1,4 +1,4 @@
-import PokeSupport from '../../components/PokeSupport'
+import PokeSupport from '@/components/PokeSupport'
 
 const PokeDashboard = ({ children, className }) => {
   return (

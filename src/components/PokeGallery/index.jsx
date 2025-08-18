@@ -2,10 +2,9 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-react'
 
-import usePokemonGallery from '../../hooks/usePokemonGallery'
-
-import PokeCard from '../PokeCard'
-import PokeLoader from '../../shared/components/PokeLoader'
+import PokeCard from '@/components/PokeCard'
+import PokeLoader from '@/shared/components/PokeLoader'
+import usePokemonGallery from '@/hooks/usePokemonGallery'
 
 const PokeGallery = () => {
   const navigate = useNavigate()

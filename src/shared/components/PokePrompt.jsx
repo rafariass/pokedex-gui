@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 
-import pikachuPhd from '../../assets/img/10083.png'
-import pikachuCosplay from '../../assets/img/10085.png'
+import pikachuPhd from '@/assets/img/10083.png'
+import pikachuCosplay from '@/assets/img/10085.png'
 
 const PokePrompt = () => {
   const naviagete = useNavigate()

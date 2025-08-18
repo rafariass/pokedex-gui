@@ -1,4 +1,4 @@
-import pokemonLoader from '../../assets/gif/pikachi-phone.gif'
+import pokemonLoader from '@/assets/gif/pikachi-phone.gif'
 
 const PokeLoader = () => {
   return (

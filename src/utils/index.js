@@ -1,1 +1,1 @@
-export { default as formattedCode } from './formattedCode'
+export { default as formattedCode } from '@/utils/formattedCode'

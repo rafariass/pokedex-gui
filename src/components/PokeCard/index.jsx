@@ -1,10 +1,11 @@
 import { Img } from 'react-image'
 import { useNavigate } from 'react-router'
 
-import pokemonError from '../../assets/img/404_pokemon.webp'
-import pokemonLoader from '../../assets/gif/pikachu-running.gif'
-import { ColorPicker } from '../../helpers/pokemon-color-picker'
-import { formattedCode } from '../../utils'
+import { formattedCode } from '@/utils'
+import { ColorPicker } from '@/helpers/pokemon-color-picker'
+
+import pokemonLoader from '@/assets/gif/pikachu-running.gif'
+import pokemonError from '@/assets/img/404_pokemon.webp'
 
 const PokeCard = ({ pokemon }) => {
   const navigate = useNavigate()

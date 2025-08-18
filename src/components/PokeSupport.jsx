@@ -1,6 +1,6 @@
 import { Terminal } from 'lucide-react'
 
-import rafariass from '../assets/icon/rafariass.ico'
+import rafariass from '@/assets/icon/rafariass.ico'
 
 const PokeSupport = () => {
   return (

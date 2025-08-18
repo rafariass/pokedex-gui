@@ -1,5 +1,5 @@
 export const enableMocking = async () => {
-  if (process.env.NODE_ENV === 'development') { // TODO: Cambiar '===' -> '!=='
+  if (process.env.NODE_ENV !== 'development') {
     return
   }
 

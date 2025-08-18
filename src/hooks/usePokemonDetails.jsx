@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { pokemonDetails } from '../services/pokemon.service'
+import { pokemonDetails } from '@/services/pokemon.service'
 
 const usePokemonDetails = (id) => {
   const { isLoading, isError, error, data } = useQuery({

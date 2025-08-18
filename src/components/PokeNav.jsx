@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 
-import pokedexImage from '../assets/img/pokedex_title.png'
+import pokedexImage from '@/assets/img/pokedex_title.png'
 
 const PokeNav = ({ children }) => {
   return (

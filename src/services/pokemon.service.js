@@ -1,4 +1,4 @@
-import axios from '../config/axios.config'
+import axios from '@/config/axios.config'
 
 export const pokemonDetails = async (id) => {
   const { data } = await axios.get(`/pokemon/${id}`)
