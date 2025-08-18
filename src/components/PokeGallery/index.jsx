@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import { ChevronLeft, ChevronsLeft, ChevronRight, ChevronsRight } from 'lucide-react'
 
 import PokeCard from '@/components/PokeCard'
+import PokeSelect from '@/components/PokeSelect'
 import PokeLoader from '@/shared/components/PokeLoader'
+import PokePagination from '@/shared/components/PokePagination'
 import usePokemonGallery from '@/hooks/usePokemonGallery'
 
 const PokeGallery = () => {
@@ -17,46 +18,23 @@ const PokeGallery = () => {
     }
   }, [isError, error, navigate])
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [data])
+
   if (isLoading === true) {
     return <PokeLoader />
   }
 
   return (
     <div className='poke-wrap bg-pokemon'>
+      <PokeSelect category={data?.category} />
+
       {data?.pokemons?.map((pokemon) => (
         <PokeCard key={pokemon.name} pokemon={pokemon} />
       ))}
-      <div className='w-full flex flex-wrap justify-center items-center gap-5 mx-4 my-10 md:mb-0'>
-        <button
-          className='poke-btn cursor-pikachu'
-          onClick={() => navigate(data?.fullPrevious)}
-          disabled={data?.page === 1}
-        >
-          <ChevronsLeft />
-        </button>
-        <button
-          className='poke-btn cursor-pikachu'
-          onClick={() => navigate(data?.previous)}
-          disabled={data?.previous === null}
-        >
-          <ChevronLeft />
-        </button>
-        Página {data?.page} de {data?.pages}
-        <button
-          className='poke-btn cursor-pikachu'
-          onClick={() => navigate(data?.next)}
-          disabled={data?.next === null}
-        >
-          <ChevronRight />
-        </button>
-        <button
-          className='poke-btn cursor-pikachu'
-          onClick={() => navigate(data?.fullNext)}
-          disabled={data?.page === data?.pages}
-        >
-          <ChevronsRight />
-        </button>
-      </div>
+
+      <PokePagination pagination={data?.pagination} />
     </div>
   )
 }

@@ -23,14 +23,14 @@ const usePokemonGallery = () => {
   else if (type > 0) window.history.replaceState({}, '', `/#/pokemons/gallery?type=${type}&page=${page}`)
 
   const generationQuery = useQuery({
-    queryKey: ['generation', generation],
     enabled: enabledByGeneration,
+    queryKey: ['generation', generation],
     queryFn: () => pokemonsGeneration(generation)
   })
 
   const typeQuery = useQuery({
-    queryKey: ['type', type],
     enabled: enabledByType,
+    queryKey: ['type', type],
     queryFn: () => pokemonsType(type)
   })
 
@@ -42,8 +42,8 @@ const usePokemonGallery = () => {
   const activeData = enabledByGeneration ? generationQuery : enabledByType ? typeQuery : null
 
   const pageQuery = useQuery({
-    queryKey: ['page', page, activeSearch.id, activeSearch.value],
     enabled: conflict === false && !!activeData?.data,
+    queryKey: ['page', page, activeSearch.id, activeSearch.value],
     queryFn: async () => {
       const itemByPage = 20
       const start = (page - 1) * itemByPage
@@ -65,16 +65,20 @@ const usePokemonGallery = () => {
       const fullPreviousPage = `?${activeSearch?.id}=${activeSearch?.value}&page=1`
 
       return {
-        id: activeData?.data?.id,
-        region: activeData?.data?.region,
-        type: activeData?.data?.type,
-        count: activeData?.data?.pokemons?.length,
-        page,
-        pages: totalPages,
-        next: nextPage,
-        previous: previousPage,
-        fullNext: fullNextPage,
-        fullPrevious: fullPreviousPage,
+        category: {
+          id: activeData?.data?.id,
+          type: activeData?.data.category,
+          name: activeData?.data?.region || activeData?.data?.type,
+          count: activeData?.data?.pokemons?.length
+        },
+        pagination: {
+          page,
+          pages: totalPages,
+          next: nextPage,
+          previous: previousPage,
+          fullNext: fullNextPage,
+          fullPrevious: fullPreviousPage
+        },
         pokemons: await Promise.all(paginatedPokemons.map((id) => pokemonDetails(id)))
       }
     }

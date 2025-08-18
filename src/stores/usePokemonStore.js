@@ -1,13 +1,17 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
-const initialState = {}
+const initialState = {
+  types: [],
+  generations: []
+}
 
 const usePokedexStore = create(
   devtools(
     persist(
       (set, get) => ({
-        ...initialState
+        ...initialState,
+        setupData: ({ types, generations }) => set({ types, generations })
       }),
       { name: 'pokedex-cache' }
     )
