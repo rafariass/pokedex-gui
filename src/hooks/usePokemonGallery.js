@@ -19,8 +19,8 @@ const usePokemonGallery = () => {
   const enabledByGeneration = conflict === false && generation > 0
   const enabledByType = conflict === false && type > 0
 
-  if (generation > 0) window.history.replaceState({}, '', `/#/pokemons/gallery?generation=${generation}&page=${page}`)
-  else if (type > 0) window.history.replaceState({}, '', `/#/pokemons/gallery?type=${type}&page=${page}`)
+  if (generation > 0) window.history.replaceState({}, '', `/pokemons/gallery?generation=${generation}&page=${page}`)
+  else if (type > 0) window.history.replaceState({}, '', `/pokemons/gallery?type=${type}&page=${page}`)
 
   const generationQuery = useQuery({
     enabled: enabledByGeneration,

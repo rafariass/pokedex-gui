@@ -1,7 +1,6 @@
-import { createHashRouter } from 'react-router'
+import { createBrowserRouter } from 'react-router'
 
 import { publicRoutes } from '@/routers/public/publicRoutes'
 
-export const router = createHashRouter([
-  ...publicRoutes
-])
+// createHashRouter or createBrowserRouter
+export const router = createBrowserRouter([...publicRoutes])
