@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { formattedCode } from '@/utils'
 import { ColorPicker } from '@/helpers/pokemon-color-picker'
+import PokeTag from '@/shared/components/PokeTag'
 
 import pokemonLoader from '@/assets/gif/pikachu-running.gif'
 import pokemonError from '@/assets/img/404_pokemon.webp'
@@ -35,17 +36,7 @@ const PokeCard = ({ pokemon }) => {
       <div className='poke-card-body'>
         <span className='poke-card-subtitle'>{formattedCode(id)}</span>
         <h2 className='poke-card-title'>{name?.replaceAll('-', ' ')}</h2>
-        <div className='w-full mt-2 flex flex-col md:flex-row gap-1'>
-          {types?.map(({ type }) => (
-            <span
-              key={`${id}-${type?.name}`}
-              className='poke-tag'
-              style={{ background: `${ColorPicker.byType(type.name)}b3` }}
-            >
-              {type?.name}
-            </span>
-          ))}
-        </div>
+        <PokeTag className='mt-2' id={id} types={types} />
       </div>
     </div>
   )

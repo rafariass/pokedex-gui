@@ -142,6 +142,15 @@
   background-repeat: repeat;
 }
 
+.bg-pokemon-transparent {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 70%), rgb(255 255 255 / 70%)),
+    url('/wallpapers/pikachu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
 .poke-nav {
   @apply flex flex-col items-center justify-center px-4 py-8;
   @apply text-white;
@@ -202,8 +211,9 @@
 }
 
 .poke-card-title {
-  /* @apply capitalize text-2xl font-bold text-neutral-400 truncate w-full -mt-1 mb-2 drop-shadow-lg */
-  @apply max-w-[130px] md:max-w-full -mt-1 mb-2 truncate capitalize text-neutral-400 text-xl md:text-2xl font-bold drop-shadow-lg;
+  @apply max-w-[130px] md:max-w-full -mt-1 mb-2;
+  @apply truncate capitalize text-neutral-400 text-xl md:text-2xl font-bold;
+  @apply drop-shadow-lg;
 }
 
 .poke-card-subtitle {
@@ -239,4 +249,88 @@
   @apply text-center text-neutral-400 text-xl md:text-2xl font-bold drop-shadow-lg;
   @apply  group-hover:!text-neutral-600;
   @apply  group-active:!text-neutral-600;
+}
+
+.poke-info {
+  @apply w-full max-w-[95dvw] overflow-hidden p-4 md:p-12;
+  @apply rounded-xl shadow-lg;
+  @apply flex flex-col justify-center items-center gap-28;
+
+  background-image:
+    linear-gradient(rgb(255 255 255 / 70%), rgb(255 255 255 / 70%)),
+    url('/wallpapers/pikachu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+.poke-info-heder {
+  @apply w-full max-w-[1000px];
+}
+
+.poke-info-name {
+  @apply md:max-w-full py-4;
+  @apply flex justify-center items-center gap-1;
+  @apply capitalize text-neutral-500 text-xl md:text-4xl font-bold;
+  @apply drop-shadow-lg;
+  @apply transition-transform duration-500 ease-in-out;
+  @apply hover:scale-110;
+  @apply active:scale-110;
+}
+
+.poke-info-icon {
+  @apply w-6 h-6 sm:w-9 sm:h-9;
+}
+
+.poke-info-id {
+  @apply block;
+  @apply capitalize text-right text-neutral-400 text-base md:text-xl font-semibold;
+  @apply drop-shadow-lg;
+}
+
+.poke-info-dashboard {
+  @apply w-full max-w-[1000px] p-5 mt-5;
+  @apply bg-white/70 border border-neutral-300 rounded-xl;
+  @apply flex flex-col justify-center items-center gap-5;
+}
+
+.poke-info-dashboard-img {
+  @apply w-full max-w-[300px] -mt-[150px];
+  @apply transition-transform duration-300;
+  @apply group-hover:scale-110 group-active:scale-110;
+}
+
+.poke-about-title {
+  @apply md:max-w-full py-4;
+  @apply flex justify-center items-center gap-1;
+  @apply capitalize text-neutral-500 text-3xl md:text-4xl font-bold;
+  @apply drop-shadow-lg;
+  @apply transition-transform duration-500 ease-in-out;
+  @apply hover:scale-110;
+  @apply active:scale-110;
+}
+
+.poke-about-subtitle {
+  @apply py-3;
+  @apply capitalize text-right text-neutral-400 text-xl md:text-2xl font-semibold;
+  @apply drop-shadow-lg;
+}
+
+.poke-about-box {
+  @apply w-full p-5;
+  @apply flex md:flex-col justify-between md:justify-center items-center gap-5;
+}
+
+.poke-about-separation {
+  @apply border-b md:border-b-0 md:border-r border-b-neutral-500 md:border-r-neutral-500;
+}
+
+.poke-about-box-info {
+  @apply flex flex-col md:flex-row justify-center items-center gap-1 md:gap-5;
+  @apply capitalize text-right text-neutral-400 text-xl md:text-2xl;
+  @apply drop-shadow-lg;
+}
+
+.poke-about-icon {
+  @apply w-9 h-9 sm:w-16 sm:h-16;
 }
