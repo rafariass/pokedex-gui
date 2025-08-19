@@ -176,7 +176,10 @@
 }
 
 .poke-wrap {
-  @apply w-full flex flex-wrap justify-center items-center gap-2 rounded-xl p-4 md:py-12 bg-white shadow-lg;
+  @apply bg-white;
+  @apply w-full p-4 md:py-12;
+  @apply rounded-xl shadow-lg;
+  @apply flex flex-wrap justify-center items-center gap-2;
 }
 
 .poke-card {

@@ -3,11 +3,14 @@ import { Outlet } from 'react-router'
 import PokeNav from '@/components/PokeNav'
 import PokeMain from '@/shared/components/PokeMain'
 import PokeDashboard from '@/shared/components/PokeDashboard'
+import PokeBreadcrumb from '@/shared/components/PokeBreadcrumb'
 
 const Pokemons = () => {
   return (
     <PokeDashboard>
-      <PokeNav />
+      <PokeNav>
+        <PokeBreadcrumb />
+      </PokeNav>
       <PokeMain className='max-w-[2000px]'>
         <Outlet />
       </PokeMain>

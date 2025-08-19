@@ -23,7 +23,7 @@ const PokeSelect = ({ category }) => {
   return (
     <div className='w-full flex flex-wrap justify-center items-center gap-5 mx-4 my-10'>
       <span>Buscar por:</span>
-      <Select defaultValue={`${category.type}-${category.id}`} onValueChange={handleChange}>
+      <Select defaultValue={`${category?.type}-${category?.id}`} onValueChange={handleChange}>
         <SelectTrigger className='max-w-[400px] min-w-[250px] bg-white'>
           <SelectValue placeholder='Select a fruit' />
         </SelectTrigger>
