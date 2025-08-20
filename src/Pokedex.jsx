@@ -1,34 +1,15 @@
-import { StrictMode, Suspense } from 'react'
-import { RouterProvider } from 'react-router'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-
-import { router } from '@/routers/AppRouter'
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 1,
-      retryDelay: 500,
-      staleTime: 1000 * 60 * 60,
-      cacheTime: 1000 * 60 * 60,
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false
-    }
-  }
-})
+import AppRouter from '@/routers/AppRouter'
+import PokePreLoad from '@/shared/components/PokePreLoad'
+import usePokedexStore from '@/stores/usePokemonStore'
 
 const Pokedex = () => {
-  return (
-    <StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <Suspense fallback={null}>
-          <RouterProvider router={router} />
-        </Suspense>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </StrictMode>
-  )
+  const { isPreloaded } = usePokedexStore()
+
+  if (isPreloaded === true) {
+    return <PokePreLoad />
+  }
+
+  return <AppRouter />
 }
 
 export default Pokedex

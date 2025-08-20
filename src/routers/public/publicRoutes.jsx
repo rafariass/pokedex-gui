@@ -1,6 +1,6 @@
 import { lazy } from 'react'
+import { Navigate } from 'react-router'
 
-const HomePage = lazy(() => import('@/pages/Home'))
 const Pokemons = lazy(() => import('@/pages/Pokemons'))
 const NotFoundPage = lazy(() => import('@/pages/NotFound'))
 const PokeGallery = lazy(() => import('@/components/PokeGallery'))
@@ -8,7 +8,7 @@ const PokeInfo = lazy(() => import('@/components/PokeInfo'))
 const PokePrompt = lazy(() => import('@/shared/components/PokePrompt'))
 
 export const publicRoutes = [
-  { path: '/', Component: HomePage },
+  { path: '/', Component: () => <Navigate to='/pokemons' /> },
   {
     path: '/pokemons',
     Component: Pokemons,

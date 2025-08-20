@@ -15,14 +15,13 @@ const useCategories = () => {
 
   useEffect(() => {
     if (data && !isError) {
-      setupData({
-        types: data.types,
-        generations: data.generations
-      })
+      setupData({ types: data.types, generations: data.generations })
     }
+
+    isError && console.error('Ha ocurrido un error inesperado:', error)
   }, [data, isError, setupData])
 
-  return { isLoading, isError, error, data }
+  return { isLoading, isError }
 }
 
 export default useCategories
