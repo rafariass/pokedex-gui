@@ -1,16 +1,27 @@
-import { useNavigate, useLocation } from 'react-router'
-import { ArrowLeft } from 'lucide-react'
+import { useNavigate, useLocation, Link } from 'react-router'
+import { ArrowLeft, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
-import { formattedCode } from '@/utils'
+import { formatCode } from '@/utils'
 
 const PokeHeader = ({ name, id }) => {
   const navigate = useNavigate()
   const location = useLocation()
   const fromPath = location?.state?.from || '/pokemons'
 
+  const previous = id <= 1 ? { visibility: 'hidden' } : {}
+  const next = id >= 10277 ? { visibility: 'hidden' } : {}
+
   return (
     <div className='poke-info-heder'>
-      <span className='poke-info-id '>{formattedCode(id)}</span>
+      <div className='w-full flex justify-end items-center gap-5'>
+        <Link to={`/pokemons/pokemon/${id - 1}`} className='poke-info-id poke-icon-border' style={previous}>
+          <ChevronLeftIcon className='poke-info-icon' />
+        </Link>
+        <span className='poke-info-id'>{formatCode(id)}</span>
+        <Link to={`/pokemons/pokemon/${id + 1}`} className='poke-info-id poke-icon-border' style={next}>
+          <ChevronRightIcon className='poke-info-icon' />
+        </Link>
+      </div>
       <button className='poke-info-name' onClick={() => navigate(fromPath)}>
         <ArrowLeft className='poke-info-icon' />{name.replaceAll('-', ' ')}
       </button>

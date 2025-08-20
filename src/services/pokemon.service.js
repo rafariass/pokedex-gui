@@ -1,5 +1,7 @@
 import axios from '@/config/axios.config'
 
+import { formatPokemonStats } from '@/utils'
+
 export const pokeCategories = async () => {
   const generation = await axios.get('/generation')
   const type = await axios.get('/type')
@@ -31,7 +33,7 @@ export const pokemonDetails = async (id) => {
     height: data?.height,
     weight: data?.weight,
     abilities: data?.abilities,
-    stats: data?.stats,
+    stats: formatPokemonStats(data?.stats),
     types: data?.types,
     sprites: {
       default: data?.sprites?.other?.['official-artwork']?.front_default,

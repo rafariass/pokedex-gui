@@ -1,14 +1,11 @@
 import { Weight, RulerDimensionLine } from 'lucide-react'
 
-import { ColorPicker } from '@/helpers/pokemon-color-picker'
-import { formattedNumber } from '@/utils'
+import { formatNumber } from '@/utils'
 
-const PokeAbout = ({ height, weight, type }) => {
-  console.log(type)
-
+const PokeAbout = ({ height, weight, type, colorBase }) => {
   return (
     <div className='w-full text-center mt-5'>
-      <h2 className='poke-about-title' style={{ color: `${ColorPicker.byType(type)}b3` }}>About</h2>
+      <h2 className='poke-about-title' style={{ color: `${colorBase}b3` }}>About</h2>
       <div className='flex flex-col md:flex-row justify-center items-center '>
 
         <div className='poke-about-box poke-about-separation'>
@@ -16,9 +13,9 @@ const PokeAbout = ({ height, weight, type }) => {
           <span className='poke-about-box-info'>
             <Weight
               className='poke-about-icon'
-              style={{ color: `${ColorPicker.byType(type)}b3` }}
+              style={{ color: `${colorBase}b3` }}
             />
-            {formattedNumber(weight / 10)} kg
+            {formatNumber(weight / 10)} kg
           </span>
         </div>
         <div className='poke-about-box'>
@@ -26,9 +23,9 @@ const PokeAbout = ({ height, weight, type }) => {
           <span className='poke-about-box-info'>
             <RulerDimensionLine
               className='poke-about-icon'
-              style={{ color: `${ColorPicker.byType(type)}b3` }}
+              style={{ color: `${colorBase}b3` }}
             />
-            {formattedNumber(height / 10)} mt
+            {formatNumber(height / 10)} mt
           </span>
         </div>
 

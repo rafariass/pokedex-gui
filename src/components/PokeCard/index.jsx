@@ -1,7 +1,7 @@
 import { Img } from 'react-image'
 import { useNavigate, useLocation } from 'react-router'
 
-import { formattedCode } from '@/utils'
+import { formatCode } from '@/utils'
 import { ColorPicker } from '@/helpers/pokemon-color-picker'
 import PokeTag from '@/shared/components/PokeTag'
 
@@ -39,7 +39,7 @@ const PokeCard = ({ pokemon }) => {
         />
       </div>
       <div className='poke-card-body'>
-        <span className='poke-card-subtitle'>{formattedCode(id)}</span>
+        <span className='poke-card-subtitle'>{formatCode(id)}</span>
         <h2 className='poke-card-title'>{name?.replaceAll('-', ' ')}</h2>
         <PokeTag className='mt-2' id={id} types={types} />
       </div>
