@@ -1,5 +1,5 @@
 import { Img } from 'react-image'
-import { useNavigate } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 
 import { formattedCode } from '@/utils'
 import { ColorPicker } from '@/helpers/pokemon-color-picker'
@@ -10,13 +10,18 @@ import pokemonError from '@/assets/img/404_pokemon.webp'
 
 const PokeCard = ({ pokemon }) => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const fromPath = {
+    state: { from: location.pathname + location.search }
+  }
+
   const { id, name, sprites, types = [] } = pokemon
   const colorBase = ColorPicker.byType(types[0]?.type?.name)
 
   return (
     <div
       className='poke-card cursor-pokeball group'
-      onClick={() => navigate(`/pokemons/pokemon/${id}`)}
+      onClick={() => navigate(`/pokemons/pokemon/${id}`, fromPath)}
       style={{
         background: `radial-gradient(circle at center, ${colorBase}4d, white)`,
         border: `1px solid ${colorBase}4d`
