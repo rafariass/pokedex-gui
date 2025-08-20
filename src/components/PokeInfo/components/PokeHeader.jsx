@@ -6,8 +6,8 @@ import { formatCode } from '@/utils'
 const PokeHeader = ({ name, id }) => {
   const navigate = useNavigate()
   const location = useLocation()
-  const fromPath = location?.state?.from || '/pokemons'
 
+  const fromPath = location?.state?.from || '/pokemons'
   const previous = id <= 1 ? { visibility: 'hidden' } : {}
   const next = id >= 10277 ? { visibility: 'hidden' } : {}
 

@@ -1,10 +1,12 @@
-import { useQuery } from '@tanstack/react-query'
-
-import { pokemonDetails } from '@/services/pokemon.service'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+
+import { useShinyToggle } from '@/hooks/useShinyToggle'
+import { pokemonDetails } from '@/services/pokemon.service'
 
 const usePokemonDetails = (id) => {
+  const shiny = useShinyToggle()
   const navigate = useNavigate()
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ['pokemon', id],
@@ -22,7 +24,7 @@ const usePokemonDetails = (id) => {
     }
   }, [isError, error, navigate])
 
-  return { isLoading, isError, error, data }
+  return { isLoading, isError, error, data, shiny }
 }
 
 export default usePokemonDetails

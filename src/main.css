@@ -296,7 +296,7 @@
 .poke-info-dashboard-img {
   @apply w-full max-w-[300px] -mt-[150px];
   @apply transition-transform duration-300;
-  @apply group-hover:scale-110 group-active:scale-110;
+  @apply hover:scale-110 active:scale-110;
 }
 
 .poke-about-title {
