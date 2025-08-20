@@ -337,3 +337,11 @@
 .poke-icon-border {
   @apply border-2 border-neutral-400 rounded-full p-1;
 }
+
+.poke-radar-chart {
+  @apply w-full max-w-full h-full max-h-[95%] md:max-h-[350px] aspect-square mx-auto;
+}
+
+.poke-bar-chart {
+  @apply w-full max-w-full h-full max-h-[350px] mx-auto;
+}

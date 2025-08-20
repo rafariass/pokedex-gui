@@ -39,7 +39,8 @@ const PokeInfo = () => {
         <div className='flex items-center space-x-2'>
           <Switch
             id='shiny-mode'
-            className='data-[state=checked]:bg-midnight'
+            className='w-16 [&>span]:w-8 h-8 [&>span]:h-8'
+            style={{ backgroundColor: `${shiny.isShiny ? colorBase + 'b3' : ''}` }}
             checked={shiny.isShiny}
             onCheckedChange={shiny.handleShiny}
           />
