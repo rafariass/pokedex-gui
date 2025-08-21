@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router'
 
 import PokeNav from '@/components/PokeNav'
-import PokeMain from '@/shared/components/PokeMain'
 import PokeDashboard from '@/shared/components/PokeDashboard'
 
 import notFoundImage from '@/assets/img/404_web.webp'
@@ -13,7 +12,7 @@ const NotFound = () => {
   return (
     <PokeDashboard>
       <PokeNav />
-      <PokeMain className='flex-col gap-8 w-full md:max-w-[750px] px-4'>
+      <div className='poke-not-found'>
         <img
           src={notFoundImage}
           className='poke-error cursor-pikachu'
@@ -35,7 +34,7 @@ const NotFound = () => {
           />
           Pokébola de regreso
         </button>
-      </PokeMain>
+      </div>
     </PokeDashboard>
   )
 }

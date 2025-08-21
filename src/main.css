@@ -165,6 +165,16 @@
   @apply [clip-path:polygon(61%_23%,100%_3%,100%_100%,0_100%,0_0)];
 }
 
+.poke-main {
+  @apply w-full max-w-[2000px] mx-auto px-4 md:px-10 my-15;
+  @apply grid place-items-center;
+}
+
+.poke-not-found {
+  @apply w-full max-w-[750px] mx-auto px-4 my-15;
+  @apply flex flex-col justify-center items-center gap-8;
+}
+
 .poke-logo {
   @apply w-full max-w-[500px] mx-auto mb-8;
   @apply drop-shadow-[0_0_15px_#ffffff4d];
@@ -344,4 +354,11 @@
 
 .poke-bar-chart {
   @apply w-full max-w-full h-full max-h-[350px] mx-auto;
+}
+
+.poke-carousel-lores {
+  @apply grid place-items-center;
+  @apply w-full h-full p-4 md:px-2;
+  @apply rounded-xl;
+  @apply text-center;
 }

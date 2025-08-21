@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import PokeHeader from '@/components/PokeInfo/components/PokeHeader'
 import PokeAbout from '@/components/PokeInfo/components/PokeAbout'
 import PokeStats from '@/components/PokeInfo/components/PokeStats'
+import PokeLores from '@/components/PokeInfo/components/PokeLores'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { ColorPicker } from '@/helpers/pokemon-color-picker'
@@ -25,6 +26,7 @@ const PokeInfo = () => {
   return (
     <div className='poke-info' style={{ backgroundColor: `${colorBase}4d` }}>
       <PokeHeader id={data?.id} name={data?.name} />
+
       <div className='poke-info-dashboard'>
         <Img
           alt={data?.name}
@@ -48,12 +50,16 @@ const PokeInfo = () => {
         </div>
 
         <PokeTag className='max-w-[300px]' id={id} types={data?.types} />
+
+        <PokeLores colorBase={colorBase} lores={data?.lores} />
+
         <PokeAbout
           height={data?.height}
           weight={data?.weight}
           type={data?.types[0]?.type?.name}
           colorBase={colorBase}
         />
+
         <PokeStats
           colorBase={colorBase}
           stats={data?.stats}
