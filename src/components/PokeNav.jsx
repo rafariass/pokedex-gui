@@ -1,8 +1,10 @@
 import { Link } from 'react-router'
 
+import PokeBreadcrumb from '@/shared/components/PokeBreadcrumb'
+
 import pokedexImage from '@/assets/img/pokedex_title.png'
 
-const PokeNav = ({ children }) => {
+const PokeNav = () => {
   return (
     <div className='poke-nav'>
       <Link to='/pokemons'>
@@ -14,7 +16,7 @@ const PokeNav = ({ children }) => {
           aria-hidden='true'
         />
       </Link>
-      {children}
+      <PokeBreadcrumb />
     </div>
   )
 }
