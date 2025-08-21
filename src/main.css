@@ -231,7 +231,7 @@
 }
 
 .poke-tag {
-  @apply capitalize text-xs text-center p-2 w-full rounded-md shadow-md;
+  @apply capitalize text-base md:text-xs text-center p-2 w-full rounded-md shadow-md;
 }
 
 .poke-prompt {
