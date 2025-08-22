@@ -358,7 +358,7 @@
 
 .poke-carousel-lores {
   @apply grid place-items-center;
-  @apply w-full h-full p-4 md:px-2;
+  @apply w-full h-full p-4;
   @apply rounded-xl;
   @apply text-center;
 }

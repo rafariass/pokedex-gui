@@ -1,11 +1,19 @@
 import { useSearchParams } from 'react-router'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueries } from '@tanstack/react-query'
 
 import { pokemonDetails, pokemonsGeneration, pokemonsType } from '@/services/pokemon.service'
 
 const conflictError = {
   code: 400,
   message: 'Búsqueda inválida: Debes indicar al menos un tipo o una generación, pero no ambos al mismo tiempo.'
+}
+
+const clearURL = ({ generation, type, page }) => {
+  if (generation > 0) {
+    window.history.replaceState({}, '', `/pokemons/gallery?generation=${generation}&page=${page}`)
+  } else if (type > 0) {
+    window.history.replaceState({}, '', `/pokemons/gallery?type=${type}&page=${page}`)
+  }
 }
 
 const usePokemonGallery = () => {
@@ -19,8 +27,7 @@ const usePokemonGallery = () => {
   const enabledByGeneration = conflict === false && generation > 0
   const enabledByType = conflict === false && type > 0
 
-  if (generation > 0) window.history.replaceState({}, '', `/pokemons/gallery?generation=${generation}&page=${page}`)
-  else if (type > 0) window.history.replaceState({}, '', `/pokemons/gallery?type=${type}&page=${page}`)
+  clearURL({ generation, type, page })
 
   const generationQuery = useQuery({
     enabled: enabledByGeneration,
@@ -59,11 +66,6 @@ const usePokemonGallery = () => {
         throw new Error('No hay resultados disponibles para esta búsqueda.')
       }
 
-      const nextPage = page < totalPages ? `?${activeSearch?.id}=${activeSearch?.value}&page=${page + 1}` : null
-      const previousPage = page > 1 ? `?${activeSearch?.id}=${activeSearch?.value}&page=${page - 1}` : null
-      const fullNextPage = `?${activeSearch?.id}=${activeSearch?.value}&page=${totalPages}`
-      const fullPreviousPage = `?${activeSearch?.id}=${activeSearch?.value}&page=1`
-
       return {
         category: {
           id: activeData?.data?.id,
@@ -74,20 +76,51 @@ const usePokemonGallery = () => {
         pagination: {
           page,
           pages: totalPages,
-          next: nextPage,
-          previous: previousPage,
-          fullNext: fullNextPage,
-          fullPrevious: fullPreviousPage
+          next: page < totalPages ? `?${activeSearch?.id}=${activeSearch?.value}&page=${page + 1}` : null,
+          previous: page > 1 ? `?${activeSearch?.id}=${activeSearch?.value}&page=${page - 1}` : null,
+          fullNext: `?${activeSearch?.id}=${activeSearch?.value}&page=${totalPages}`,
+          fullPrevious: `?${activeSearch?.id}=${activeSearch?.value}&page=1`
         },
-        pokemons: await Promise.all(paginatedPokemons.map((id) => pokemonDetails(id)))
+        pokemonsIds: paginatedPokemons,
+        pokemons: []
       }
     }
   })
 
-  const isLoading = generationQuery.isLoading || typeQuery.isLoading || pageQuery.isLoading
-  const isError = conflict || generationQuery.isError || typeQuery.isError || pageQuery.isError
-  const error = conflict ? conflictError : generationQuery.error || typeQuery.error || pageQuery.error
-  const data = pageQuery.data ?? null
+  const pokemonQueries = useQueries({
+    queries: (pageQuery.data?.pokemonsIds ?? []).map((id) => ({
+      enabled: !!pageQuery?.data,
+      queryKey: ['pokemon', id],
+      queryFn: () => pokemonDetails(id)
+    }))
+  })
+
+  const pokemons = pokemonQueries.map((pq) => pq.data).filter(Boolean)
+
+  const isLoading =
+    generationQuery.isLoading ||
+    typeQuery.isLoading ||
+    pageQuery.isLoading ||
+    pokemonQueries.some((q) => q.isLoading)
+
+  const isError =
+    conflict ||
+    generationQuery.isError ||
+    typeQuery.isError ||
+    pageQuery.isError ||
+    pokemonQueries.some((q) => q.isError)
+
+  const error =
+    conflict
+      ? conflictError
+      : generationQuery.error ||
+        typeQuery.error ||
+        pageQuery.error ||
+        pokemonQueries.find((q) => q.error)?.error
+
+  const data = pageQuery?.data
+    ? { ...pageQuery.data, pokemons }
+    : null
 
   return { isLoading, isError, error, data }
 }

@@ -32,7 +32,7 @@ const PokeLores = ({ colorBase, lores }) => {
       api.off('select', updateCounter)
       api.off('reInit', updateCounter)
     }
-  }, [api])
+  }, [api, lores])
 
   if (lores.length === 0) return <></>
 

@@ -13,7 +13,7 @@ const PokeBarChart = ({ stats, colorBase }) => {
         data={stats}
         layout='vertical'
         className='pt-8 md:pt-0'
-        margin={{ right: 10 }}
+        margin={{ right: 28 }}
       >
         <YAxis dataKey='stat' type='category' hide />
         <XAxis dataKey='current' type='number' hide />
